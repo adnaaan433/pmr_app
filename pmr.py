@@ -147,7 +147,7 @@ if season == '2024-25':
             match_input = st.sidebar.button('Confirm Selections', on_click=lambda: st.session_state.update({'confirmed': True}))
         except:
             st.session_state['confirmed'] = False
-            st.sidebar.write('Serie A Matches available till GameWeek 13\nRemaining data will be uploaded soon\nThanks for your patience')
+            st.sidebar.write('Serie A Matches available till GameWeek 15\nRemaining data will be uploaded soon\nThanks for your patience')
             
     elif league and league == 'UEFA Champions League' and stage and htn and atn:
         season = season.replace('-', '_')
