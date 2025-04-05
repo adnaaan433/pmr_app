@@ -2975,6 +2975,7 @@ if season and league and htn and atn and st.session_state.confirmed:
             
             # Calculate minutes played
             mins_played, subs_text = playing_time(pname)
+            subs_display = f' ({subs_text})' if subs_text else ''
             
             # Generate individual plots
             offensive_actions(axs[0], pname)
@@ -2984,11 +2985,7 @@ if season and league and htn and atn and st.session_state.confirmed:
             
             # Add text and images to the figure
             fig.text(0.21, 1.02, f'{pname}', fontsize=50, fontweight='bold', ha='left', va='center')
-            if subs_text == None:
-                fig.text(0.21, 0.97, f'in {hteamName} {hgoal_count} - {agoal_count} {ateamName}  |  Minutes played: {mins_played}', 
-                         fontsize=30, ha='left', va='center')
-            else:
-                fig.text(0.21, 0.97, f'in {hteamName} {hgoal_count} - {agoal_count} {ateamName}  |  Minutes played: {mins_played} ({subs_text})', 
+            fig.text(0.21, 0.97, f'in {hteamName} {hgoal_count} - {agoal_count} {ateamName}  |  Minutes played: {mins_played}{subs_display}', 
                          fontsize=30, ha='left', va='center')
             fig.text(0.87, 0.995, '@adnaaan433', fontsize=20, ha='right', va='center')
         
@@ -3002,7 +2999,8 @@ if season and league and htn and atn and st.session_state.confirmed:
             fig, axs = plt.subplots(1, 2, figsize=(16, 15), facecolor='#f5f5f5')
             
             # Calculate minutes played
-            mins_played = playing_time(pname)
+            mins_played, subs_text = playing_time(pname)
+            subs_display = f' ({subs_text})' if subs_text else ''
             
             # Generate individual plots
             gk_passmap(axs[0], pname)
@@ -3012,7 +3010,7 @@ if season and league and htn and atn and st.session_state.confirmed:
             
             # Add text and images to the figure
             fig.text(0.22, 0.98, f'{pname}', fontsize=40, fontweight='bold', ha='left', va='center')
-            fig.text(0.22, 0.94, f'in {hteamName} {hgoal_count} - {agoal_count} {ateamName}  |  Minutes played: {mins_played}', 
+            fig.text(0.22, 0.94, f'in {hteamName} {hgoal_count} - {agoal_count} {ateamName}  |  Minutes played: {mins_played}{subs_display}', 
                      fontsize=25, ha='left', va='center')
             fig.text(0.87, 0.995, '@adnaaan433', fontsize=15, ha='right', va='center')
         
