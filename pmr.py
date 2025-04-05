@@ -52,7 +52,7 @@ def reset_confirmed():
     
     
    
-season = st.sidebar.selectbox('Select a season:', ['2023-24', '2024-25'], key='season', index=None, on_change=reset_confirmed)
+season = st.sidebar.selectbox('Select a season:', ['2023-24', '2024-25'], key='season', index=1, on_change=reset_confirmed)
 if season == '2023-24':
     league = st.sidebar.selectbox('Select a League', ['La Liga', 'Premier League'], key='league', index=None, on_change=reset_confirmed)
 
